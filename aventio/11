@@ -1,0 +1,109 @@
+
+using System;
+class University
+{
+    private double TotalGrades, GradesNumber, MaxGradesNumber;
+
+    // Конструктор класса University 
+    public University()
+    {
+        TotalGrades = 0;
+        GradesNumber = 0;
+        MaxGradesNumber = 10;
+    }
+
+    public void AddMaxGrades(double amount)
+    {
+        MaxGradesNumber = amount;
+        Console.WriteLine($"Максимальное значение оценок - {MaxGradesNumber}");
+    }
+
+    // Метод для пополнения оценок
+    public void ToAdd(double amount)
+    {
+        if (amount >= 2 && amount <= 5 && GradesNumber + 1 <= MaxGradesNumber)
+        {
+            TotalGrades += amount;
+            GradesNumber += 1;
+            Console.WriteLine($"Добавлена оценка {amount}. Количество оценок: {GradesNumber}, общий балл:{TotalGrades}");
+        }
+        else
+        {
+            Console.WriteLine($"Оценка не может быть выставлена.");
+        }
+    }
+    // Метод для удаления оценки
+    public void ToDelete(double amount)
+    {
+        if (amount >= 2 && amount <= 5 && amount <= TotalGrades)
+        {
+            TotalGrades -= amount;
+            GradesNumber -= 1;
+            Console.WriteLine($"Оценка {amount} удалена. Количество оценок: {GradesNumber}, общий балл:{TotalGrades}");
+        }
+    }
+    // Метод для получения информации о текущем количестве оценок
+    public void GetTotalGrades()
+    {
+        Console.WriteLine($"Ваш балл {TotalGrades}.");
+    }
+}
+ 
+class Program
+{
+    static void Main()
+    {
+        University MyUniversity = new University();
+
+        // Бесконечный цикл для взаимодействия с приложением 
+        while (true)
+        {
+            Console.WriteLine("\n \nУниверситет: \n1. Максимальное количество оценок \n2. Добавить оценку \n3. Удалить оценку \n4. Посмотреть текущий балл \n5. Завершение работы.");
+
+            // Считывание выбора пользователя 
+            int choice = int.Parse(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("Добавьте новое максимальное количество оценок:");
+
+                    double ToAddMaxGrades = double.Parse(Console.ReadLine());
+                    MyUniversity.AddMaxGrades(ToAddMaxGrades);
+                    break;
+
+                case 2:
+
+                    // Вывод запроса на ввод оценок для пополнения их к общему количеству оценок 
+                    Console.WriteLine("Добавить оценку:");
+
+                    double ToAddAmount = double.Parse(Console.ReadLine());
+                    MyUniversity.ToAdd(ToAddAmount);
+                    break;
+
+                case 3:
+                    Console.WriteLine("Введите оценку, которую хотите удалить:");
+
+                    // Считывание введенной оценки и вызов метода ToDelete 
+                    double ToDeleteAmount = double.Parse(Console.ReadLine());
+                    MyUniversity.ToDelete(ToDeleteAmount);
+                    break;
+
+                case 4:
+
+                    MyUniversity.GetTotalGrades();
+                    break;
+
+                case 5:
+ 
+                    Console.WriteLine("До следующего семестра.");
+                    Environment.Exit(0);
+                    break;
+
+                default:
+
+                    Console.WriteLine("Ошибка, попробуйте снова.");
+                    break;
+            }
+        }
+    }
+}

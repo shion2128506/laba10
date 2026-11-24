@@ -1,0 +1,32 @@
+﻿# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.vsidx
+*.futdcache.v2
+*.dtbcache.v2
+*.metadata.v9.bin
+*.projects.v9.bin
+*.strings.v9.bin
+
+# NuGet
+*.nupkg
+project.assets.json
+*.nuget.g.props
+*.nuget.g.targets
+
+# Nested repos
+sekai/
+tasks_14/

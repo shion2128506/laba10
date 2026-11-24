@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
 #include <locale.h>
@@ -19,25 +19,25 @@ void task1()
 {
     int task, menu, N;
     double x, eps;
-    puts("Выберите задание: 1 — две функции, 2 — сравнение способов вычисления cos(x)");
+    puts("Р’С‹Р±РµСЂРёС‚Рµ Р·Р°РґР°РЅРёРµ: 1 вЂ” РґРІРµ С„СѓРЅРєС†РёРё, 2 вЂ” СЃСЂР°РІРЅРµРЅРёРµ СЃРїРѕСЃРѕР±РѕРІ РІС‹С‡РёСЃР»РµРЅРёСЏ cos(x)");
     if (scanf("%d", &task) != 1) return 0;
 
     if (task == 1)
     {
-        puts("Введите x");
+        puts("Р’РІРµРґРёС‚Рµ x");
         scanf("%lf", &x);
         printf("fa(x) = %lf, fb(x) = %lf\n", fa(x), fb(x));
-        printf("произведение = %lf, разность квадратов = %lf, удвоенная сумма = %lf\n",
+        printf("РїСЂРѕРёР·РІРµРґРµРЅРёРµ = %lf, СЂР°Р·РЅРѕСЃС‚СЊ РєРІР°РґСЂР°С‚РѕРІ = %lf, СѓРґРІРѕРµРЅРЅР°СЏ СЃСѓРјРјР° = %lf\n",
             fa(x) * fb(x), fa(x) * fa(x) - fb(x) * fb(x), 2 * (fa(x) + fb(x)));
         do {
-            puts("Что посчитать?");
+            puts("Р§С‚Рѕ РїРѕСЃС‡РёС‚Р°С‚СЊ?");
             puts("1 - fa(x)");
             puts("2 - fb(x)");
-            puts("3 - произведение fa(x) * fb(x)");
-            puts("4 - разность квадратов fa(x)^2 - fb(x)^2");
-            puts("5 - удвоенная сумма 2 * (fa(x) + fb(x))");
-            puts("6 - ввести другой x");
-            puts("0 - выход");
+            puts("3 - РїСЂРѕРёР·РІРµРґРµРЅРёРµ fa(x) * fb(x)");
+            puts("4 - СЂР°Р·РЅРѕСЃС‚СЊ РєРІР°РґСЂР°С‚РѕРІ fa(x)^2 - fb(x)^2");
+            puts("5 - СѓРґРІРѕРµРЅРЅР°СЏ СЃСѓРјРјР° 2 * (fa(x) + fb(x))");
+            puts("6 - РІРІРµСЃС‚Рё РґСЂСѓРіРѕР№ x");
+            puts("0 - РІС‹С…РѕРґ");
             scanf("%d", &menu);
             switch (menu)
             {
@@ -48,44 +48,44 @@ void task1()
                 printf("fb(%g) = %lf\n", x, fb(x));
                 break;
             case 3:
-                printf("произведение = %lf\n", fa(x) * fb(x));
+                printf("РїСЂРѕРёР·РІРµРґРµРЅРёРµ = %lf\n", fa(x) * fb(x));
                 break;
             case 4:
-                printf("разность квадратов = %lf\n", fa(x) * fa(x) - fb(x) * fb(x));
+                printf("СЂР°Р·РЅРѕСЃС‚СЊ РєРІР°РґСЂР°С‚РѕРІ = %lf\n", fa(x) * fa(x) - fb(x) * fb(x));
                 break;
             case 5:
-                printf("удвоенная сумма = %lf\n", 2 * (fa(x) + fb(x)));
+                printf("СѓРґРІРѕРµРЅРЅР°СЏ СЃСѓРјРјР° = %lf\n", 2 * (fa(x) + fb(x)));
                 break;
             case 6:
-                puts("Введите x");
+                puts("Р’РІРµРґРёС‚Рµ x");
                 scanf("%lf", &x);
                 break;
             case 0:
                 break;
             default:
-                puts("Нет такого пункта");
+                puts("РќРµС‚ С‚Р°РєРѕРіРѕ РїСѓРЅРєС‚Р°");
             }
         } while (menu != 0);
     }
     else if (task == 2)
     {
-        puts("Введите x, число членов ряда N и точность eps");
+        puts("Р’РІРµРґРёС‚Рµ x, С‡РёСЃР»Рѕ С‡Р»РµРЅРѕРІ СЂСЏРґР° N Рё С‚РѕС‡РЅРѕСЃС‚СЊ eps");
         if (scanf("%lf %d %lf", &x, &N, &eps) != 3) return 0;
         if (N < 1 || eps <= 0) {
-            puts("Нужно N > 0 и eps > 0");
+            puts("РќСѓР¶РЅРѕ N > 0 Рё eps > 0");
             return 0;
         }
-        printf("cos(x) из math.h: %.10f\n", cos(x));
-        printf("cos_n(x, %d):    %.10f (разница %.2e)\n", N, cos_n(x, N), fabs(cos(x) - cos_n(x, N)));
-        printf("cos_eps(x, %g): %.10f (разница %.2e)\n", eps, cos_eps(x, eps), fabs(cos(x) - cos_eps(x, eps)));
+        printf("cos(x) РёР· math.h: %.10f\n", cos(x));
+        printf("cos_n(x, %d):    %.10f (СЂР°Р·РЅРёС†Р° %.2e)\n", N, cos_n(x, N), fabs(cos(x) - cos_n(x, N)));
+        printf("cos_eps(x, %g): %.10f (СЂР°Р·РЅРёС†Р° %.2e)\n", eps, cos_eps(x, eps), fabs(cos(x) - cos_eps(x, eps)));
     }
     else {
-        puts("Нет такого задания");
+        puts("РќРµС‚ С‚Р°РєРѕРіРѕ Р·Р°РґР°РЅРёСЏ");
     }
 
     return 0;
 }
-    // F1(x) = x^2 - 3x + 9 при x <= 3, 1 / (x^3 + 3) при x > 3
+    // F1(x) = x^2 - 3x + 9 РїСЂРё x <= 3, 1 / (x^3 + 3) РїСЂРё x > 3
     double fa(double x)
     {
         double y;
@@ -104,7 +104,7 @@ void task1()
         return y;
     }
 
-    // Вариант 3
+    // Р’Р°СЂРёР°РЅС‚ 3
     double cos_n(double x, int N)
     {
         double part = 1, sum = 0;
